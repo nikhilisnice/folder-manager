@@ -16,14 +16,18 @@ def touch(fname):
         os.utime(fname, None)
     except:
         open(fname, 'a').close()
-
+        
+def mov_files(inputfolder, outputfolder, ds, de):
+	filenamelist = os.listdir(inputfolder)
+	for filename in filenamelist:
+	  folderdate = filename[ds:de]
+	  filenamecheck = filename[0:3]
+	  if (filenamecheck == "DCS" or filenamecheck == "78A"):
+		mkdir_p(os.path.join(outputfolder, folderdate))
+		shutil.move((os.path.join(inputfolder, filename)), os.path.join(outputfolder, folderdate, filename))
 inputfolder = '/home/nikhil/Documents/Test-For-Folder-Thing'
+inputfolder2 = '/home/nikhil/Documents/tf2'
 outputfolder = '/tmp/folder-manager'
-filenamelist = os.listdir(inputfolder)
 
-for filename in filenamelist:
-  folderdate = filename[8:16]
-  filenamecheck = filename[0:3]
-  if filenamecheck == "DCS":
-	mkdir_p(os.path.join(outputfolder, folderdate))
-	shutil.move((os.path.join(inputfolder, filename)), os.path.join(outputfolder, folderdate, filename))
+mov_files(inputfolder, outputfolder, 8, 16)
+mov_files(inputfolder2, outputfolder, 24, 32)
