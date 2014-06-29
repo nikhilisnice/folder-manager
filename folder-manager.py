@@ -25,9 +25,9 @@ def mov_files(inputfolder, outputfolder, ds, de):
 	  if (filenamecheck == "DCS" or filenamecheck == "78A"):
 		mkdir_p(os.path.join(outputfolder, folderdate))
 		shutil.move((os.path.join(inputfolder, filename)), os.path.join(outputfolder, folderdate, filename))
-inputfolder = '/home/nikhil/Documents/Test-For-Folder-Thing'
-inputfolder2 = '/home/nikhil/Documents/tf2'
-outputfolder = '/tmp/folder-manager'
+inputfolder = '/media/untitled/ftp/pi/files/files'
+inputfolder2 = '/media/untitled/ftp/pi/files/files/ipcam'
+outputfolder = '/media/untitled/ftp/pictures'
 
 mov_files(inputfolder, outputfolder, 8, 16)
 mov_files(inputfolder2, outputfolder, 24, 32)
