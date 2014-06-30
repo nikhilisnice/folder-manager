@@ -5,7 +5,8 @@ from os import listdir
 from os.path import isfile, join
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument("inputfolders", nargs="+", help = 'Select the input folder(s) for the program. Add the input folders&#39; paths on top ')
+parser.add_argument("outputfolder", help = "Enter the output folder's path for the program.")
+parser.add_argument("inputfolders", nargs="+", help = "Enter the input folder(s)' path for the program.")
 args = parser.parse_args()
 
 def mkdir_p(path):
@@ -36,9 +37,8 @@ def mov_files(inputfolder, outputfolder):
     if (filenamecheck == "DCS" or filenamecheck == "78A"):
       mkdir_p(os.path.join(outputfolder, folderdate))
       shutil.move((os.path.join(inputfolder, filename)), os.path.join(outputfolder, folderdate, filename))
-#inputfolder = '/media/untitled/ftp/pi/files/files/ipcam'
 inputfolders= args.inputfolders
-outputfolder = '/tmp/folder-manager'
+outputfolder = args.outputfolder
 
 
 #mov_files(inputfolder, outputfolder, 8, 16)
