@@ -24,6 +24,8 @@ def touch(fname):
     open(fname, 'a').close()
         
 def mov_files(inputfolder, outputfolder):
+  ds = 0
+  de = 0
   filenamelist = os.listdir(inputfolder)
   for filename in filenamelist:
     filenamecheck = filename[0:3]
