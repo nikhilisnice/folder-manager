@@ -43,6 +43,5 @@ inputfolders= args.inputfolders
 outputfolder = args.outputfolder
 
 
-#mov_files(inputfolder, outputfolder, 8, 16)
 for folder in inputfolders:
   mov_files(folder, outputfolder)
